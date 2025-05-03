@@ -1,0 +1,93 @@
+body{
+    color: white !important;
+    font-family: "Oswald", sans-serif !important;
+  font-optical-sizing: auto !important;
+  font-weight: 400;
+  font-style: normal !important;
+  background-color:#2b2b2b;
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 100% !important;
+  overflow: hidden !important;
+}
+.navbar.navbar-expand-lg.navbar-light.bg-dark{
+    color: white !important;
+    background-color: black !important;
+}
+.nav-link.active{
+color: #15e515  !important;
+}
+.moira-logo{
+    width: 80px !important;
+    border-radius: 100%;
+    padding: 0 !important;
+    margin: 0 !important;
+    transform: scale(1.3) !important;
+}
+.navbar-toggler{
+    background: none !important;
+    border: none !important;
+    color: white !important;
+    font-size: 1.5rem !important;
+}
+.nav-link{
+    color: white !important;
+}
+.custom-toggler-icon {
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23ffffff' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+  }
+  
+/*video*/
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .video-container video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: -1;
+  }
+  .video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0f4a0057;
+background: linear-gradient(0deg,rgba(32, 160, 0, 0.432) 0%, rgba(0, 0, 0, 0.966) 100%);
+    z-index: 0;
+  }
+  .info-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1; /* Asegura que esté por encima del video */
+    color: white; /* Contrasta con el fondo de video */
+    flex-wrap: wrap; /* Se adapta en móviles */
+  }
+  
+  .info-box {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 2rem;
+    border-radius: 10px;
+    min-width: 250px;
+    max-width: 300px;
+  }
+  

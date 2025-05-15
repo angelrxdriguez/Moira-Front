@@ -4,25 +4,30 @@ body{
   font-optical-sizing: auto !important;
   font-weight: 400;
   font-style: normal !important;
-  background-color:#2b2b2b;
+  background-color:#111111;
   margin: 0 !important;
   padding: 0 !important;
   height: 100% !important;
-  overflow: hidden !important;
+  overflow-x: hidden !important;
 }
 .navbar.navbar-expand-lg.navbar-light.bg-dark{
     color: white !important;
-    background-color: black !important;
+    background-color: #111111 !important;
 }
 .nav-link.active{
-color: #15e515  !important;
+color: #a8d8ea  !important;
 }
 .moira-logo{
-    width: 80px !important;
+    width: 60px !important;
     border-radius: 100%;
     padding: 0 !important;
     margin: 0 !important;
     transform: scale(1.3) !important;
+}
+.sublogo{
+  margin-left: 20px;
+  margin-top: 10px;
+  color: #a8d8ea;
 }
 .navbar-toggler{
     background: none !important;
@@ -69,25 +74,50 @@ color: #15e515  !important;
     left: 0;
     width: 100%;
     height: 100%;
-    background: #0f4a0057;
-background: linear-gradient(0deg,rgba(32, 160, 0, 0.432) 0%, rgba(0, 0, 0, 0.966) 100%);
-    z-index: 0;
+    background: #1d1d1d96;
+/*background: linear-gradient(0deg,#a8d8ea71 0%, #111111 100%);
+  */  z-index: 0;
   }
-  .info-wrapper {
+  .info {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 1; /* Asegura que esté por encima del video */
-    color: white; /* Contrasta con el fondo de video */
-    flex-wrap: wrap; /* Se adapta en móviles */
+    z-index: 1; 
+    color: white; 
+    flex-wrap: wrap; 
   }
   
   .info-box {
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: #111111;
     padding: 2rem;
     border-radius: 10px;
     min-width: 250px;
     max-width: 300px;
   }
-  
+  .acceso{
+    border: none;
+    padding: 8px;
+    border-radius: 15px;
+    background-color: #a8d8ea;
+    font-weight: 600;
+  }
+  .acceso:hover{
+    background-color: #b8ecff;
+  }
+  /*footer*/
+  footer{
+  color: white !important;
+  background-color: #111111 !important;
+  text-align: center ;
+}
+.col-md-4.webs{
+  display: flex;
+  flex-direction: column;
+}
+.enlacefooter{
+  color: red;
+}
+.enlacefooter:hover{
+  color: brown;
+}

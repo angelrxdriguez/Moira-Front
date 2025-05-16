@@ -101,6 +101,8 @@ color: #a8d8ea  !important;
     border-radius: 15px;
     background-color: #a8d8ea;
     font-weight: 600;
+    text-decoration: none;
+    color: #111111;
   }
   .acceso:hover{
     background-color: #b8ecff;

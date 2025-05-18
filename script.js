@@ -8,12 +8,19 @@ fetch('https://moira-back.vercel.app/api')
     console.error('Error al conectar con el backend:', error);
     document.getElementById('resultado').textContent = 'Error de conexión';
   });
-  $('.form-sesion').on('submit', function (e) {
+$('.form-sesion').on('submit', function (e) {
   e.preventDefault();
 
   const usuario = $('#usuario').val();
   const email = $('#email').val();
   const contra = $('#contra').val();
+  const repiteContra = $('#repiteContra').val();
+
+  if (contra !== repiteContra) {
+    alert('Las contraseñas no coinciden');
+    return;
+  }
+
   const fechaNacimiento = $('#fechaNacimiento').val();
 
   $.ajax({

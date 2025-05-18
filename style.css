@@ -10,7 +10,9 @@ body {
   height: 100% !important;
   overflow-x: hidden !important;
 }
-
+.url-logo{
+  border-radius: 50px !important;
+}
 .navbar.navbar-expand-lg.navbar-light.bg-dark {
   color: white !important;
   background-color: #111111 !important;

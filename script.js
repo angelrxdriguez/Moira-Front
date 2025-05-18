@@ -17,7 +17,7 @@ fetch('https://moira-back.vercel.app/api')
   const fechaNacimiento = $('#fechaNacimiento').val();
 
   $.ajax({
-    url: 'https://TU_BACKEND_URL.vercel.app/api/registrar',
+    url: 'https://moira-back.vercel.app/api/registrar',
     method: 'POST',
     contentType: 'application/json',
     data: JSON.stringify({ usuario, email, contra, fechaNacimiento }),

@@ -164,6 +164,21 @@ background-color: #a8d8ea;
 .btn.btn-primary.registrarse:hover{
   background-color: #c2efff;
 }
+/*OFERTAR*/
+.misofertas{
+  color: white !important;
+  text-align: center;
+}
+.crearoferta{
+  background-color: #a8d8ea;
+  color: #111111;
+  text-decoration: none !important;
+  padding: 5px;
+  border-radius: 10px;
+}
+.crearoferta:hover{
+  background-color: #b8ecff;
+}
 /*footer*/
 footer {
   color: white !important;

@@ -1,3 +1,11 @@
+
+$(document).ready(function () {
+  $('.crearoferta').on('click', function () {
+    const modal = new bootstrap.Modal(document.getElementById('modalCrearOferta'));
+    modal.show();
+  });
+});
+
 fetch('https://moira-back.vercel.app/api')
   .then(response => response.json())
   .then(data => {
@@ -8,6 +16,7 @@ fetch('https://moira-back.vercel.app/api')
     console.error('Error al conectar con el backend:', error);
     document.getElementById('resultado').textContent = 'Error de conexión';
   });
+  //CREAR USUARIO
 $('.form-sesion').on('submit', function (e) {
   e.preventDefault();
 

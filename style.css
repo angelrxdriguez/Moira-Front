@@ -175,6 +175,7 @@ background-color: #a8d8ea;
   text-decoration: none !important;
   padding: 5px;
   border-radius: 10px;
+  border: none;
 }
 .crearoferta:hover{
   background-color: #b8ecff;

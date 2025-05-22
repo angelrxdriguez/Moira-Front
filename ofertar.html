@@ -51,7 +51,13 @@
   <div class="misofertas">
       <div class="sinoferta">
         <h4>Todavía no tienes ninguna oferta.</h4>
-        <a href="crearoferta.html" class="crearoferta">Crear Oferta</a>
+        <button class="crearoferta">Crear Oferta</button>
+      </div>
+      <div class="conoferta">
+         <button class="crearoferta">Crear Oferta</button>
+         <div class="ofertascreadas">
+
+         </div>
       </div>
   </div>
 </div>
@@ -119,7 +125,27 @@
         >
     </div>
   </footer>
+  <!--MODALES-->
+<div class="modal fade" id="modalCrearOferta" tabindex="-1" aria-labelledby="modalCrearOfertaLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content rounded-3 shadow">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalCrearOfertaLabel">Crear nueva oferta</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <p>Aquí irá tu formulario de crear oferta más adelante.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary">Guardar Oferta</button>
+      </div>
+    </div>
+  </div>
+</div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+
 </body>
 
 </html>

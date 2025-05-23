@@ -48,4 +48,43 @@ $(document).ready(function () {
       }
     });
   });
+//TEMAS Y SUBTEMAS
+  const temaSelect = $('#tema');
+  const subtemaSelect = $('#subtema');
+  let temasData = [];
+
+  // Obtener los temas y subtemas desde la API usando jQuery AJAX
+  $.ajax({
+    url: 'https://moira-back.vercel.app/api/tiposOfertas',
+    method: 'GET',
+    dataType: 'json',
+    success: function (data) {
+      temasData = data;
+
+      temaSelect.append('<option selected disabled>Selecciona un tema</option>');
+      data.forEach(function (item) {
+        temaSelect.append(`<option value="${item.tema}">${item.tema}</option>`);
+      });
+    },
+    error: function (xhr, status, error) {
+      console.error('Error al cargar tipos de oferta:', error);
+      temaSelect.append('<option disabled>Error al cargar temas</option>');
+    }
+  });
+
+  // Manejar cambio en el select de temas
+  temaSelect.on('change', function () {
+    const temaSeleccionado = $(this).val();
+    const temaObj = temasData.find(t => t.tema === temaSeleccionado);
+
+    subtemaSelect.empty();
+    if (temaObj && Array.isArray(temaObj.subtemas)) {
+      subtemaSelect.append('<option selected disabled>Selecciona un subtema</option>');
+      temaObj.subtemas.forEach(function (sub) {
+        subtemaSelect.append(`<option value="${sub}">${sub}</option>`);
+      });
+    } else {
+      subtemaSelect.append('<option disabled>No hay subtemas disponibles</option>');
+    }
+  });
 });

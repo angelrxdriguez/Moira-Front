@@ -180,6 +180,9 @@ background-color: #a8d8ea;
 .crearoferta:hover{
   background-color: #b8ecff;
 }
+#modalCrearOferta{
+  color: #111111 !important;
+}
 /*footer*/
 footer {
   color: white !important;

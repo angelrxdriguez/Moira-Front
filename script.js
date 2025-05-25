@@ -91,7 +91,7 @@ $(document).ready(function () {
   const $provincia = $('#provincia');
   const $ciudad = $('#ciudad');
 
-  $.getJSON('/ubicaciones/comunidades', function (comunidades) {
+  $.getJSON('https://moira-back.vercel.app/api/ubicaciones/comunidades', function (comunidades) {
     $.each(comunidades, function (_, comunidad) {
       $comunidad.append($('<option>', {
         value: comunidad,
@@ -106,7 +106,7 @@ $(document).ready(function () {
     $ciudad.empty().append('<option value="">Selecciona una ciudad</option>').prop('disabled', true);
 
     if (comunidad) {
-      $.getJSON(`/ubicaciones/provincias/${encodeURIComponent(comunidad)}`, function (provincias) {
+      $.getJSON(`https://moira-back.vercel.app/api/ubicaciones/provincias/${encodeURIComponent(comunidad)}`, function (provincias) {
         $.each(provincias, function (_, provincia) {
           $provincia.append($('<option>', {
             value: provincia,
@@ -124,7 +124,7 @@ $(document).ready(function () {
     $ciudad.empty().append('<option value="">Selecciona una ciudad</option>').prop('disabled', true);
 
     if (comunidad && provincia) {
-      $.getJSON(`/ubicaciones/ciudades/${encodeURIComponent(comunidad)}/${encodeURIComponent(provincia)}`, function (ciudades) {
+      $.getJSON(`https://moira-back.vercel.app/api/ubicaciones/ciudades/${encodeURIComponent(comunidad)}/${encodeURIComponent(provincia)}`, function (ciudades) {
         $.each(ciudades, function (_, ciudad) {
           $ciudad.append($('<option>', {
             value: ciudad,

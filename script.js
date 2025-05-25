@@ -71,7 +71,6 @@ $(document).ready(function () {
       temaSelect.append('<option disabled>Error al cargar temas</option>');
     }
   });
-
   // Manejar cambio en el select de temas
   temaSelect.on('change', function () {
     const temaSeleccionado = $(this).val();
@@ -85,6 +84,55 @@ $(document).ready(function () {
       });
     } else {
       subtemaSelect.append('<option disabled>No hay subtemas disponibles</option>');
+    }
+  });
+  //UBICACIONES
+  const $comunidad = $('#comunidad');
+  const $provincia = $('#provincia');
+  const $ciudad = $('#ciudad');
+
+  $.getJSON('/ubicaciones/comunidades', function (comunidades) {
+    $.each(comunidades, function (_, comunidad) {
+      $comunidad.append($('<option>', {
+        value: comunidad,
+        text: comunidad
+      }));
+    });
+  });
+
+  $comunidad.on('change', function () {
+    const comunidad = $(this).val();
+    $provincia.empty().append('<option value="">Selecciona una provincia</option>').prop('disabled', true);
+    $ciudad.empty().append('<option value="">Selecciona una ciudad</option>').prop('disabled', true);
+
+    if (comunidad) {
+      $.getJSON(`/ubicaciones/provincias/${encodeURIComponent(comunidad)}`, function (provincias) {
+        $.each(provincias, function (_, provincia) {
+          $provincia.append($('<option>', {
+            value: provincia,
+            text: provincia
+          }));
+        });
+        $provincia.prop('disabled', false);
+      });
+    }
+  });
+
+  $provincia.on('change', function () {
+    const comunidad = $comunidad.val();
+    const provincia = $(this).val();
+    $ciudad.empty().append('<option value="">Selecciona una ciudad</option>').prop('disabled', true);
+
+    if (comunidad && provincia) {
+      $.getJSON(`/ubicaciones/ciudades/${encodeURIComponent(comunidad)}/${encodeURIComponent(provincia)}`, function (ciudades) {
+        $.each(ciudades, function (_, ciudad) {
+          $ciudad.append($('<option>', {
+            value: ciudad,
+            text: ciudad
+          }));
+        });
+        $ciudad.prop('disabled', false);
+      });
     }
   });
 });

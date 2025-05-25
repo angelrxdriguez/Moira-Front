@@ -163,15 +163,18 @@
           <h6 class="mt-4 mb-3">📍 Ubicación</h6>
           <div class="row">
             <div class="col-md-6 mb-3">
-              <label for="provincia" class="form-label">Provincia / Región</label>
-              <select id="provincia" name="provincia" class="form-select" required>
-                <!-- Puedes cargar dinámicamente desde tu base o hardcodear -->
-                <option selected disabled>Selecciona una provincia</option>
-                <option value="Madrid">Madrid</option>
-                <option value="Barcelona">Barcelona</option>
-                <option value="Valencia">Valencia</option>
-                <!-- ... -->
-              </select>
+              <select id="comunidad" name="comunidad" required>
+  <option value="">Selecciona una comunidad</option>
+</select>
+
+<select id="provincia" name="provincia" disabled required>
+  <option value="">Selecciona una provincia</option>
+</select>
+
+<select id="ciudad" name="ciudad" disabled required>
+  <option value="">Selecciona una ciudad</option>
+</select>
+
             </div>
             <div class="col-md-6 mb-3">
               <label for="ciudad" class="form-label">Ciudad o pueblo</label>

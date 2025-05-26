@@ -86,53 +86,56 @@ $(document).ready(function () {
       subtemaSelect.append('<option disabled>No hay subtemas disponibles</option>');
     }
   });
-  //UBICACIONES
-  const $comunidad = $('#comunidad');
-  const $provincia = $('#provincia');
-  const $ciudad = $('#ciudad');
+ //ubicaciones: 
+ let ubicaciones = {};
+  // Cargar el JSON de ubicaciones
+  $.getJSON('data/ubicaciones.json', function (data) {
+    ubicaciones = data;
 
-  $.getJSON('https://moira-back.vercel.app/api/ubicaciones/comunidades', function (comunidades) {
-    $.each(comunidades, function (_, comunidad) {
-      $comunidad.append($('<option>', {
-        value: comunidad,
-        text: comunidad
-      }));
-    });
+    // Rellenar el select de comunidades
+    for (let comunidad in ubicaciones) {
+      $('#comunidad').append(`<option value="${comunidad}">${comunidad}</option>`);
+    }
   });
 
-  $comunidad.on('change', function () {
-    const comunidad = $(this).val();
-    $provincia.empty().append('<option value="">Selecciona una provincia</option>').prop('disabled', true);
-    $ciudad.empty().append('<option value="">Selecciona una ciudad</option>').prop('disabled', true);
+  // Cuando se cambia la comunidad
+  $('#comunidad').on('change', function () {
+    const comunidadSeleccionada = $(this).val();
 
-    if (comunidad) {
-      $.getJSON(`https://moira-back.vercel.app/api/ubicaciones/provincias/${encodeURIComponent(comunidad)}`, function (provincias) {
-        $.each(provincias, function (_, provincia) {
-          $provincia.append($('<option>', {
-            value: provincia,
-            text: provincia
-          }));
-        });
-        $provincia.prop('disabled', false);
+    // Reset y habilitar el select de provincias
+    $('#provincia').empty().append('<option value="">Selecciona una provincia</option>').prop('disabled', false);
+    $('#ciudad').empty().append('<option value="">Selecciona una ciudad</option>').prop('disabled', true);
+
+    if (comunidadSeleccionada && ubicaciones[comunidadSeleccionada]) {
+      const provincias = ubicaciones[comunidadSeleccionada];
+      for (let provincia in provincias) {
+        $('#provincia').append(`<option value="${provincia}">${provincia}</option>`);
+      }
+    }
+  });
+
+  // Cuando se cambia la provincia
+  $('#provincia').on('change', function () {
+    const comunidadSeleccionada = $('#comunidad').val();
+    const provinciaSeleccionada = $(this).val();
+
+    $('#ciudad').empty().append('<option value="">Selecciona una ciudad</option>').prop('disabled', false);
+
+    if (
+      comunidadSeleccionada &&
+      provinciaSeleccionada &&
+      ubicaciones[comunidadSeleccionada] &&
+      ubicaciones[comunidadSeleccionada][provinciaSeleccionada]
+    ) {
+      const ciudades = ubicaciones[comunidadSeleccionada][provinciaSeleccionada];
+      ciudades.forEach(ciudad => {
+        $('#ciudad').append(`<option value="${ciudad}">${ciudad}</option>`);
       });
     }
   });
 
-  $provincia.on('change', function () {
-    const comunidad = $comunidad.val();
-    const provincia = $(this).val();
-    $ciudad.empty().append('<option value="">Selecciona una ciudad</option>').prop('disabled', true);
-
-    if (comunidad && provincia) {
-      $.getJSON(`https://moira-back.vercel.app/api/ubicaciones/ciudades/${encodeURIComponent(comunidad)}/${encodeURIComponent(provincia)}`, function (ciudades) {
-        $.each(ciudades, function (_, ciudad) {
-          $ciudad.append($('<option>', {
-            value: ciudad,
-            text: ciudad
-          }));
-        });
-        $ciudad.prop('disabled', false);
-      });
-    }
+  // Mostrar modal al hacer clic en "Crear Oferta"
+  $('.crearoferta').on('click', function () {
+    $('#modalCrearOferta').modal('show');
   });
 });

@@ -139,7 +139,7 @@ $(document).ready(function () {
     $('#modalCrearOferta').modal('show');
   });
   //LOGIN
-   $('.form-sesion').on('submit', function (e) {
+   $('.form-log').on('submit', function (e) {
       e.preventDefault();
 
       const email = $('#email').val();

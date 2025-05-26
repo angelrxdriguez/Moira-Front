@@ -138,4 +138,34 @@ $(document).ready(function () {
   $('.crearoferta').on('click', function () {
     $('#modalCrearOferta').modal('show');
   });
-});
+  //LOGIN
+   $('.form-sesion').on('submit', function (e) {
+      e.preventDefault();
+
+      const email = $('#email').val();
+      const contra = $('#contra').val();
+
+      $.ajax({
+        url: 'https://backprueba-two.vercel.app/api/login',
+        method: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({ email, contra }),
+        success: function (data) {
+          localStorage.setItem('usuario', JSON.stringify(data.usuario));
+          window.location.href = 'perfil.html';
+        },
+        error: function (xhr) {
+          const mensaje = xhr.responseJSON?.message || 'Error al iniciar sesión';
+          alert(mensaje);
+        }
+      });
+    });
+  });
+  const usuario = JSON.parse(localStorage.getItem('usuario'));
+  const navSesion = document.querySelector('.nav-link[href="sesion.html"]');
+
+  if (usuario && navSesion) {
+    navSesion.textContent = usuario.nombre;
+    navSesion.href = 'perfil.html';
+  }
+

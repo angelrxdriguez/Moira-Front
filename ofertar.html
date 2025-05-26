@@ -161,20 +161,28 @@
 
           <!-- Ubicación -->
           <h6 class="mt-4 mb-3">📍 Ubicación</h6>
-          <div class="row">
-            <div class="col-md-6 mb-3">
-<select id="comunidad" name="comunidad" required>
-  <option value="">Selecciona una comunidad</option>
-</select>
+         <div class="row">
+  <div class="col-md-4 mb-3">
+    <label for="comunidad" class="form-label">Comunidad</label>
+    <select id="comunidad" name="comunidad" class="form-select" required>
+      <option value="">Selecciona una comunidad</option>
+    </select>
+  </div>
 
-<select id="provincia" name="provincia" disabled required>
-  <option value="">Selecciona una provincia</option>
-</select>
+  <div class="col-md-4 mb-3">
+    <label for="provincia" class="form-label">Provincia</label>
+    <select id="provincia" name="provincia" class="form-select" disabled required>
+      <option value="">Selecciona una provincia</option>
+    </select>
+  </div>
 
-<select id="ciudad" name="ciudad" disabled required>
-  <option value="">Selecciona una ciudad</option>
-</select>
-
+  <div class="col-md-4 mb-3">
+    <label for="ciudad" class="form-label">Ciudad</label>
+    <select id="ciudad" name="ciudad" class="form-select" disabled required>
+      <option value="">Selecciona una ciudad</option>
+    </select>
+  </div>
+</div>
           <div class="mb-3">
             <label for="direccion" class="form-label">Dirección exacta (opcional)</label>
             <input type="text" id="direccion" name="direccion" class="form-control">

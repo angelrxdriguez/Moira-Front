@@ -160,7 +160,6 @@ $(document).ready(function () {
         }
       });
     });
-  });
   const usuario = JSON.parse(localStorage.getItem('usuario'));
   const navSesion = document.querySelector('.nav-link[href="sesion.html"]');
 
@@ -169,3 +168,4 @@ $(document).ready(function () {
     navSesion.href = 'perfil.html';
   }
 
+  });

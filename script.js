@@ -146,7 +146,7 @@ $(document).ready(function () {
       const contra = $('#contra').val();
 
       $.ajax({
-        url: 'https://backprueba-two.vercel.app/api/login',
+        url: 'https://moira-back.vercel.app/api/login',
         method: 'POST',
         contentType: 'application/json',
         data: JSON.stringify({ email, contra }),

@@ -167,5 +167,8 @@ $(document).ready(function () {
     navSesion.textContent = usuario.nombre;
     navSesion.href = 'perfil.html';
   }
-
+$(document).on('click', '.cerrar-sesion', function () {
+  localStorage.removeItem('usuario');
+  window.location.href = 'sesion.html';
+});
   });

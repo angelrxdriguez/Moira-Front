@@ -164,6 +164,16 @@ background-color: #a8d8ea;
 .btn.btn-primary.registrarse:hover{
   background-color: #c2efff;
 }
+.btn.btn-primary.sesion{
+  width: 75%;
+background-color: #a8d8ea;
+  color: #111111;
+  font-weight: 800;
+  border: none;
+}
+.btn.btn-primary.sesion:hover{
+  background-color: #c2efff;
+}
 /*OFERTAR*/
 .misofertas{
   color: white !important;
@@ -183,6 +193,39 @@ background-color: #a8d8ea;
 #modalCrearOferta{
   color: #111111 !important;
 }
+/*Usuario*/
+.contenedor-perfil {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 70px;
+}
+
+.perfil-card {
+  background-color: #222222;
+  padding: 30px;
+  border-radius: 16px;
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+}
+
+.perfil-foto {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.perfil-card h2 {
+  margin: 0;
+}
+
+.perfil-card p {
+  color: rgb(199, 199, 199);
+}
+
 /*footer*/
 footer {
   color: white !important;

@@ -219,13 +219,15 @@ background-color: #a8d8ea;
 }
 
 .perfil-card h2 {
-  margin: 0;
+margin-bottom: 1.5rem;
 }
 
 .perfil-card p {
   color: rgb(199, 199, 199);
 }
-
+.cerrar-sesion{
+  
+}
 /*footer*/
 footer {
   color: white !important;

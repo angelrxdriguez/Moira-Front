@@ -8,3 +8,9 @@
 - Node.js + Express
 - MongoDB Atlas como base de datos
 - Desplegado en: [https://moira-backend.vercel.app](https://moira-backend.vercel.app)
+
+TASK
+Perfil.html
+Cerrar Sesion funcional.
+Video de index
+Crear oferta asociando usuario

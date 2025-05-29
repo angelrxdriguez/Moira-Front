@@ -171,4 +171,16 @@ $(document).on('click', '.cerrar-sesion', function () {
   localStorage.removeItem('usuario');
   window.location.href = 'sesion.html';
 });
+if (window.location.pathname.includes('perfil.html')) {
+  const usuario = JSON.parse(localStorage.getItem('usuario'));
+
+  if (usuario) {
+    $('#perfil-nombre').text(usuario.nombre);
+    $('#perfil-email').text(usuario.email);
+  } else {
+    // Si no hay sesión, redirige a la página de login
+    window.location.href = 'sesion.html';
+  }
+}
+
   });
